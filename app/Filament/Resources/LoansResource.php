@@ -112,7 +112,6 @@ class LoansResource extends Resource
                                     }
 
                                     DB::commit();
-                                    // $this->info('Return successfully.');
 
                                     Notification::make()
                                         ->title('Return Succesfull')
@@ -121,7 +120,6 @@ class LoansResource extends Resource
                                 } catch (Exception $e) {
                                     DB::rollBack();
                                     $e->getMessage();
-                                    // $this->error('An error occurred: ' . $e->getMessage());
                                 }
                             }
                         ),
