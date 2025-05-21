@@ -78,7 +78,7 @@ class LoansResource extends Resource
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\Action::make('Confirm Return')
-                        ->modalDescription('Are you sure want to confirm this return ?')
+                        ->modalDescription('Are you sure want to confirm return ?')
                         ->icon('heroicon-s-inbox-arrow-down')
                         ->modalHeading('Confirm Return')
                         ->modalWidth(MaxWidth::Medium)
