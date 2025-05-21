@@ -78,7 +78,6 @@ class LoansResource extends Resource
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\Action::make('Confirm Return')
-                        // ->visible(fn (): bool => auth()->user()->can())
                         ->modalDescription('Are you sure want to confirm this return ?')
                         ->icon('heroicon-s-inbox-arrow-down')
                         ->modalHeading('Confirm Return')
@@ -112,16 +111,14 @@ class LoansResource extends Resource
                                     }
 
                                     DB::commit();
-                                    // $this->info('Return successfully.');
 
                                     Notification::make()
-                                        ->title('Return Succesfull')
+                                        ->title('Return Succesfully')
                                         ->success()
                                         ->send();
                                 } catch (Exception $e) {
                                     DB::rollBack();
                                     $e->getMessage();
-                                    // $this->error('An error occurred: ' . $e->getMessage());
                                 }
                             }
                         ),
