@@ -21,15 +21,12 @@ use Illuminate\Support\Facades\Route;
 
 */
 
+
 Route::post('/login', [ApiAuthController::class, 'auth']);
 
+Route::post('/sign-up', [ApiAuthController::class, 'signUp']);
+
 Route::middleware('auth:sanctum')->group(function () {
-
-    Route::get('/test', function () {
-        return response()->json(['message' => 'You have accessed a protected endpoint!', 'user' => auth()->user()->name]);
-    });
-
-    // Route::resource('/loans', LoansApiControllers::class);
     Route::get('/books', [BooksApiController::class, 'index']);
     Route::get('/books/{books}', [BooksApiController::class, 'show']);
 
